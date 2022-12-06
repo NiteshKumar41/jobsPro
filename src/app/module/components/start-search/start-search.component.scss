@@ -1,0 +1,105 @@
+.color{
+    background-color: #ff8800;
+}
+.width100{
+    width: 100% !important;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 4px 4px 0 0;
+    padding: 0.75em 0.75em 0 0.75em;
+    background: white;
+    border-radius: 10px !important;
+}
+::ng-deep input.mat-input-element {
+    margin-top: -0.0625em;
+    padding-left: 10px;
+}
+.header{
+    color: white;
+    padding-left: 5px;
+}
+
+.pagination-list .pagination {
+    padding: 40px 0 30px;
+    margin: 0;
+    display: block;
+    font-size: 0;
+  }
+  
+  .pagination-list .pagination.navigation {
+    margin-top: 10px;
+  }
+  
+  .pagination-list .pagination.navigation.padding-top-60 {
+    margin-top: 0;
+  }
+  
+  .pagination-list .pagination .nav-links .page-numbers {
+      height: 24px;
+      width: 24px;
+      line-height: 25px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 1.4rem;
+      display: inline-block;
+      margin: 0 5px;
+      font-weight: 400;
+      color: #6f7484;
+      -webkit-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+      position: relative;
+      box-shadow: 1px 1px 2px #ccc;
+  }
+  .pagination-list .pagination .nav-links .page-numbers:hover {
+    color: #ed3554;
+  }
+  
+  .pagination-list .pagination .nav-links .page-numbers:last-child:before {
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .pagination-list .pagination .nav-links .page-numbers.current {
+      color: #ffffff;
+      background: #fc6a03;
+      border-color: #fc6a03;
+      border-radius: 50%;
+  }
+  
+  .pagination-list .pagination .next,
+  .pagination-list .pagination .prev {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #f9fbfe;
+  }
+  
+  @media all and (max-width: 767px) {
+    .pagination-list .pagination .nav-links .page-numbers {
+      height: 32px;
+      width: 32px;
+      line-height: 32px;
+      margin: 0 3px;
+    }
+  }
+  .btn-dark {
+    color: #fff;
+    background-color: #fdfdfd;
+    border-color: #343a4017;
+    box-shadow: 1px 1px 3px #ccc;
+}
+.btn-dark.disabled, .btn-dark:disabled {
+    color: #fff;
+    background-color: #ffffff;
+    border-color: #343a4026;
+    box-shadow: 1px 1px 4px #ccc;
+}
+.pagination .btn-group-lg>.btn, .btn-lg {
+    padding: 3px 5px 3px 5px;
+  
+    border-radius: 50%;
+}
+.pagination .fa-angle-left, .fa-angle-right {
+        color: #ffffff;
+    background: #fc6a03;
+    border-radius: 50%;
+    padding: 1px 4px 1px 3px;
+}

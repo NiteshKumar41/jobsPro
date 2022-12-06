@@ -1,0 +1,41 @@
+<div class="centerAlign">
+    <div id="content">
+		<img src="https://i.postimg.cc/dVLcmM3B/cancel.png"
+			alt="logo"
+			class="ribbonAlign">
+	</div>
+    <br>
+	<img src="https://i.postimg.cc/Z5HRMzxy/warning.png"
+		alt="logo"
+		style="height:100px;width:100px;">
+	<br>
+	<h1>
+		Why are you cancelling?
+	</h1>
+	<mat-radio-group class="radioAlign">
+		<mat-radio-button value="1">{{"I’m unavailable on the date"}}</mat-radio-button><br>
+        <mat-radio-button value="2">{{"Offered price is too low"}}</mat-radio-button><br>
+		<mat-radio-button value="3">{{"Out of my coverage area"}}</mat-radio-button><br>
+		<mat-radio-button value="4">{{"Others"}}</mat-radio-button>
+	</mat-radio-group>
+	<br>
+	<mat-form-field style="width:350px;"
+		appearance="fill">
+		<textarea matInput
+			name="questionText"
+			rows="8"
+			placeholder="Write your description of not more than 100 words..."
+			required></textarea>
+	</mat-form-field>
+	<div>
+		<button mat-flat-button
+			style="background-color: #8DC63F;color: #ffffff;margin-right:8px;font-size: x-large;">
+			Yes
+		</button>
+		<button mat-flat-button
+			style="background-color: #F90606;color: #ffffff;margin-left:8px;font-size: x-large;">
+			No
+		</button>
+	</div>
+</div>
+

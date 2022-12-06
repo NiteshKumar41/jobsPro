@@ -1,0 +1,670 @@
+<app-header></app-header>
+<div class="row mt-4">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row mt-2 mb-4 alignItem">
+      <div class="col-md-2">
+        <img [src]='profileImage' height="100" style="border-radius: 46px;
+        width: 115px;"/>
+      </div>
+      <div class="col-md-10">
+        <div class="row mb-3 ">
+          <h4 class="fontSize">Welcome to DashBoard</h4>
+        </div>
+        <div class="row mb-3" style="padding-left: 10px">
+          Hello {{profileData?.name}}, good day to you
+        </div>
+        <div class="row mb-3 alignSelf">
+          <!-- <div class="col-md-2">You have received</div>
+          <div class="col-md-2 btnColor text-center">
+            <p class="pl-2 fontSize" style="padding-top: 10px">2 New Request</p>
+          </div>
+          <div class="col-md-8"></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row margin30 mt-3">
+  <div class="col-md-3">
+    <div class="">
+      <div class="nav-item width100 text-center border padding10 borderRadius20 colorMain cursor"
+        (click)="changeTab(1)">
+        Sent Offer &nbsp;&nbsp;{{ dashBoardData?.totalSentOffer }}
+      </div>
+      <div class="row padding20" *ngIf="subtab === 1">
+        <div class="col-12 text-center padding10 borderBottom cursor" (click)="activeSubTab(1)"
+          [ngClass]="activeTab === 1 ? 'colorMain' : 'colorBlack'">
+          Pending
+        </div>
+        <div class="col-12 text-center padding10 borderBottom cursor" (click)="activeSubTab(2)"
+          [ngClass]="activeTab === 2 ? 'colorMain' : 'colorBlack'">
+          On Going
+        </div>
+        <div class="col-12 text-center padding10 borderBottom cursor" (click)="activeSubTab(3)"
+          [ngClass]="activeTab === 3 ? 'colorMain' : 'colorBlack'">
+          Completed
+        </div>
+      </div>
+      <div class="nav-item width100 text-center border padding10 mt-4 borderRadius20 colorMain cursor"
+        (click)="changeTab(2)">
+        Posted Service &nbsp;&nbsp;{{ dashBoardData?.totalPostedServices }}
+      </div>
+      <div class="row padding20 mt-3" *ngIf="subtab === 2">
+        <div class="col-12 text-center cursor" (click)="activeSubTab(5)"
+          [ngClass]="activeTab === 5 ? 'colorMain' : 'colorBlack'">
+          Post New Service
+        </div>
+      </div>
+      <div class="nav-item width100 text-center border padding10 mt-4 borderRadius20 colorMain cursor"
+        (click)="changeTab(3)">
+        Received Offer &nbsp;&nbsp;{{ dashBoardData?.totalReceivedOffer }}
+      </div>
+      <div class="row padding20" *ngIf="subtab === 3">
+        <div class="col-12 text-center padding10 borderBottom cursor" (click)="activeSubTab(6)"
+          [ngClass]="activeTab === 6 ? 'colorMain' : 'colorBlack'">
+          Pending
+        </div>
+        <div class="col-12 text-center padding10 borderBottom cursor" (click)="activeSubTab(7)"
+          [ngClass]="activeTab === 7 ? 'colorMain' : 'colorBlack'">
+          Accept
+        </div>
+        <div class="col-12 text-center padding10 borderBottom cursor" (click)="activeSubTab(8)"
+          [ngClass]="activeTab === 8 ? 'colorMain' : 'colorBlack'">
+          Completed
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="card border height100">
+      <div class="card-heading text-center padding10 borderBottom cardBody">
+         <div  *ngIf="subtab === 1">Sent Offer</div>
+         <div  *ngIf="subtab === 2">Posted Services</div>
+         <div  *ngIf="subtab === 3">Received Offers</div>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 1">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let pend of sentOfferPendings">
+            <div class="row alignItem">
+              <div class="col-4">
+                <img [src]="serviceImageUrl + pend?.serviceId?.serviceType?.image" height="100" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{pend?.title ? pend?.title : pend?.serviceId?.title}}</div>
+                <div class="row">Job ID:{{ pend?.id }}</div>
+                <div class="row">{{ pend?.userName }}</div>
+                <div class="row">MYR {{ pend?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <button class="btnColor btn borderRadius20 width100" (click)="withdrawSentOffer(pend?.id,withdraw)">Withdraw Offer</button>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 2">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let data of sentOnGoing">
+            <div class="row alignItem">
+              <div class="col-4">
+                <img [src]="serviceImageUrl + data?.serviceId?.serviceType?.image" height="100" alt="" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{data?.title ? data?.title : data?.serviceId?.title}}</div>
+                <div class="row">Job ID:{{ data?.id }}</div>
+                <div class="row">{{ data?.userName }}</div>
+                <div class="row">MYR {{ data?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <button class="btnColor btn borderRadius20 width100" (click)="withdrawSentOffer(data?.id,withdraw)">Withdraw Offer</button>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 3">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let data of sentCompleted">
+            <div class="row alignItem">
+              <div class="col-4">
+                <img [src]="serviceImageUrl + data?.serviceId?.serviceType?.image" height="100" alt="" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{data?.title ? data?.title : data?.serviceId?.title}}</div>
+                <div class="row">Job ID:{{ data?.id }}</div>
+                <div class="row">{{ data?.userName }}</div>
+                <div class="row">MYR {{ data?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <div class="row mb-3">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100">View Review</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" (click)="vendorReview(data?.id)">Rate Services</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 4">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let data of postedServices">
+            <div class="row alignItem">
+              <div class="col-4">
+                <img [src]="this.serviceImageUrl + data?.serviceType?.image" alt="" height="100" width="100" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{data?.title ? data?.title : data?.serviceId?.title }}</div>
+                <div class="row">Job ID:{{ data?.id }}</div>
+                <div class="row">{{ data?.currency }} {{ data?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <div class="row mb-3">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      (click)="editPostedService(data)">
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" (click)="deletePostedOffer(data?.id,delete)">Delete</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4" *ngIf="activeTab === 5">
+        <form [formGroup]="addNewService">
+          <div class="col-12">
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Service Type</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <select class="form-control" formControlName="serviceTypeId">
+                  <option selected>Choose...</option>
+                  <option [value]="data?.id" *ngFor="let data of allCategoryServices">
+                    {{ data?.en }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Title</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <input type="text" placeholder="Post Title" class="form-control" formControlName="title" />
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Description</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <input type="text" placeholder="Post Title" class="form-control" formControlName="description" />
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Rate Type</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <div class="btn">Hourly Rate</div>
+                <div class="btn">Fixed Rate</div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <!-- <div class="row mb-3 marginLeft0">
+            <div class="col-1"></div>
+            <div class="col-2">Negotiable</div>
+            <div class="col-1"></div>
+            <div class="col-7">
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="col-1"></div>
+          </div> -->
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Currency</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <input type="text" placeholder="Amount" class="form-control" formControlName="currency" />
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Amount</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <input type="text" placeholder="Amount" class="form-control" formControlName="amount" />
+              </div>
+              <div class="col-1"></div>
+            </div>
+
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">Day of the week</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <input type="text" placeholder="Select Service" class="form-control" formControlName="weekDay" />
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">From Time</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <div class="row">
+                  <div class="col-5">
+                    <input type="time" placeholder="00:00" class="form-control" formControlName="fromTime" />
+                  </div>
+                  <div class="col-2 text-center alignSelf">TO</div>
+                  <div class="col-5">
+                    <input type="time" placeholder="00:00" class="form-control" formControlName="toTime" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row mb-3 marginLeft0">
+              <div class="col-1"></div>
+              <div class="col-2">City</div>
+              <div class="col-1"></div>
+              <div class="col-7">
+                <input type="text" placeholder="Your City" class="form-control" formControlName="city" />
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <!-- <div class="row mt-2 mb-4 marginLeft0 marginRight0 padding20">
+              <div class="card">images</div>
+            </div> -->
+          </div>
+          <div class="row mb-3 marginLeft0">
+            <div class="col-2"></div>
+            <div class="col-9 text-right pr-2" style="text-align: right;margin-right: 10px;">
+              <a class="cursor" (click)="addMedia()">Upload Media here</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+          <div class="row mb-4">
+            <div class="col-2"></div>
+            <div class="col-9 text-right pr-2" style="text-align: right;margin-right: 10px;">
+              <div class="btn btnColor" (click)="postNewService()">Post Service</div>
+            </div>
+            <div class="col-1"></div>
+            
+          </div>
+          
+        </form>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 6">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let data of receivedOfferPendings">
+            <div class="row alignItem mt-3 mb-3">
+              <div class="col-4">
+                <img [src]="serviceImageUrl + data?.serviceId?.serviceType?.image" height="100" alt="" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{data?.title ? data?.title :data?.serviceId?.title}}</div>
+                <div class="row">Job ID:{{ data?.id }}</div>
+                <div class="row">{{ data?.userName }}</div>
+                <div class="row">MYR {{ data?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <div class="row mb-3">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" (click)="chat(data)">Chat</button>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" (click)="acceptReceivedOffer(data?.id, mymodal2)">
+                      Accept
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left ">
+                    <button class="btnColor btn borderRadius20 width100" (click)="rejectReceivedOffer(data?.id, reject)">
+                      Reject
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 7">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let data of receivedOnGoing">
+            <div class="row alignItem">
+              <div class="col-4">
+                <img [src]="serviceImageUrl + data?.serviceId?.serviceType?.image" height="100" alt="" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{data?.title ? data?.title :data?.serviceId?.title}}</div>
+                <div class="row">Job ID:{{ data?.id }}</div>
+                <div class="row">{{ data?.userName }}</div>
+                <div class="row">MYR {{ data?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <div class="row mb-3">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" (click)="completeOrder(data, complete)">
+                      Complete
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    <button class="btnColor btn borderRadius20 width100" (click)="cancelReceivedOffer(data?.id, cancel)">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" *ngIf="activeTab === 8">
+        <div class="row mt-3 padding20">
+          <div class="card mb-4" style="background-color: #bcbcbc" *ngFor="let data of receivedCompleted">
+            <div class="row alignItem">
+              <div class="col-4">
+                <img [src]="serviceImageUrl + data?.serviceId?.serviceType?.image" height="100" alt="" />
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">{{data?.title ? data?.title :data?.serviceId?.title}}</div>
+                <div class="row">Job ID:{{ data?.id }}</div>
+                <div class="row">{{ data?.userName }}</div>
+                <div class="row">MYR {{ data?.amount }}</div>
+                <div class="row mb-4">2022-03-31</div>
+              </div>
+              <div class="col-3 alignSelf">
+                <button class="btnColor btn borderRadius20 width100" (click)="cusotmerReview(data?.id)">Rate</button>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal2 let-modal let-c="close">
+  <div class="modal-header">
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="centerAlign">
+      <div id="content">
+        <img src="https://i.postimg.cc/Kjb1p6YK/accept.jpg" alt="logo" style="height: 100px; width: 100px" />
+        <br />
+        <br />
+        <h1>Proceed to accept?</h1>
+        <div>
+          <button mat-flat-button (click)="c('yes')" style="
+              background-color: #8dc63f;
+              color: #ffffff;
+              margin-right: 8px;
+              font-size: x-large;
+            ">
+            Yes
+          </button>
+          <button mat-flat-button (click)="modal.close('Save click')" style="
+              background-color: #f90606;
+              color: #ffffff;
+              margin-left: 8px;
+              font-size: x-large;
+            ">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #reject let-modal let-c="close">
+  <div class="modal-header">
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="centerAlign">
+      <div id="content">
+        <img src="https://i.postimg.cc/dVLcmM3B/cancel.png" alt="logo" style="height: 100px; width: 100px" />
+        <br />
+        <br />
+        <h1>Proceed to Reject?</h1>
+        <div>
+          <button mat-flat-button (click)="c('yes')" style="
+              background-color: #8dc63f;
+              color: #ffffff;
+              margin-right: 8px;
+              font-size: x-large;
+            ">
+            Yes
+          </button>
+          <button mat-flat-button (click)="modal.close('Save click')" style="
+              background-color: #f90606;
+              color: #ffffff;
+              margin-left: 8px;
+              font-size: x-large;
+            ">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #complete let-modal let-c="close">
+  <div class="modal-header">
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="centerAlign">
+      <div id="content">
+        <img src="https://i.postimg.cc/Kjb1p6YK/accept.jpg" alt="logo" style="height: 100px; width: 100px" />
+        <br />
+        <br />
+        <h1>Proceed to Complete?</h1>
+        <div>
+          <button mat-flat-button (click)="c('yes')" style="
+              background-color: #8dc63f;
+              color: #ffffff;
+              margin-right: 8px;
+              font-size: x-large;
+            ">
+            Yes
+          </button>
+          <button mat-flat-button (click)="modal.close('Save click')" style="
+              background-color: #f90606;
+              color: #ffffff;
+              margin-left: 8px;
+              font-size: x-large;
+            ">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cancel let-modal let-c="close">
+  <div class="modal-header">
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row mb-3">
+      <div class="col text-center">
+        <img src="https://i.postimg.cc/Z5HRMzxy/warning.png" alt="logo" style="height: 100px; width: 100px" />
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <h1>Why are you cancelling?</h1>
+        <mat-radio-group class="radioAlign">
+          <mat-radio-button value="1" class="mb-2">{{
+            "I’m unavailable on the date"
+            }}</mat-radio-button><br />
+          <mat-radio-button value="2" class="mb-2">{{
+            "Offered price is too low"
+            }}</mat-radio-button><br />
+          <mat-radio-button value="3" class="mb-2">{{
+            "Out of my coverage area"
+            }}</mat-radio-button><br />
+          <mat-radio-button value="4" class="mb-2">{{ "Others" }}</mat-radio-button>
+        </mat-radio-group>
+        <br />
+        <mat-form-field style="width: 350px" appearance="fill">
+          <textarea matInput name="questionText" rows="8"
+            placeholder="Write your description of not more than 100 words..." required></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-2"></div>
+    </div>
+
+    <div class="text-center">
+      <button mat-flat-button (click)="c('yes')" style="
+          background-color: #8dc63f;
+          color: #ffffff;
+          margin-right: 8px;
+          font-size: x-large;
+        ">
+        Yes
+      </button>
+      <button mat-flat-button (click)="modal.close('Save click')" style="
+          background-color: #f90606;
+          color: #ffffff;
+          margin-left: 8px;
+          font-size: x-large;
+        ">
+        No
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #withdraw let-modal let-c="close">
+  <div class="modal-header">
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row mb-3">
+      <div class="col text-center">
+        <img src="https://i.postimg.cc/Z5HRMzxy/warning.png" alt="logo" style="height: 100px; width: 100px" />
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <h1>Why are you withdrawing?</h1>
+        <mat-radio-group class="radioAlign">
+          <mat-radio-button value="1" class="mb-2">{{"Found better choice"}}</mat-radio-button><br>
+          <mat-radio-button value="2" class="mb-2">{{"Offer doesn’t meet requirement"}}</mat-radio-button><br>
+          <mat-radio-button value="3" class="mb-2">{{"Changing decision"}}</mat-radio-button><br>
+          <mat-radio-button value="4" class="mb-2">{{ "Others" }}</mat-radio-button>
+        </mat-radio-group>
+        <br />
+        <mat-form-field style="width: 350px" appearance="fill">
+          <textarea matInput name="questionText" rows="8"
+            placeholder="Write your description of not more than 100 words..." required></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-2"></div>
+    </div>
+
+    <div class="text-center">
+      <button mat-flat-button (click)="c('yes')" style="
+          background-color: #8dc63f;
+          color: #ffffff;
+          margin-right: 8px;
+          font-size: x-large;
+        ">
+        Yes
+      </button>
+      <button mat-flat-button (click)="modal.close('Save click')" style="
+          background-color: #f90606;
+          color: #ffffff;
+          margin-left: 8px;
+          font-size: x-large;
+        ">
+        No
+      </button>
+    </div>
+  </div>
+</ng-template>
+<ng-template #delete let-modal let-c="close">
+  <div class="modal-header">
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="centerAlign">
+      <div id="content">
+        <img src="https://i.postimg.cc/dVLcmM3B/cancel.png" alt="logo" style="height: 100px; width: 100px" />
+        <br />
+        <br />
+        <h1>Proceed to Delete?</h1>
+        <div>
+          <button mat-flat-button (click)="c('yes')" style="
+              background-color: #8dc63f;
+              color: #ffffff;
+              margin-right: 8px;
+              font-size: x-large;
+            ">
+            Yes
+          </button>
+          <button mat-flat-button (click)="modal.close('Save click')" style="
+              background-color: #f90606;
+              color: #ffffff;
+              margin-left: 8px;
+              font-size: x-large;
+            ">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

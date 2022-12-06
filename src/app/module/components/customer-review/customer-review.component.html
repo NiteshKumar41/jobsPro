@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card border colorMain" style="padding: 20px;
+        font-size: 20px;">Rate</div>
+      </div>
+      <div class="col-md-8">
+        <form [formGroup]="customerRatingForm">
+        <div class="row">
+          <div class="col">
+            <div class="card border">
+              <div class="row mb-2 mt-2" style="margin-left: 10px;font-size: 20px;padding: 20px;">Customer Review</div>
+              <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                  <div class="row mb-3">
+                    <div class="col-4">Skills</div>
+                    <div class="col-8">
+                      <ngx-star-rating formControlName="skills"  [id]="'rating1'"></ngx-star-rating>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">Quality</div>
+                    <div class="col-8">
+                      <ngx-star-rating formControlName="quality" [id]="'rating2'"></ngx-star-rating>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">Friendliness</div>
+                    <div class="col-8">
+                      <ngx-star-rating formControlName="friendliness" [id]="'rating3'"></ngx-star-rating>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">Deadlines</div>
+                    <div class="col-8">
+                      <ngx-star-rating formControlName="deadlines" [id]="'rating4'"></ngx-star-rating>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">Communication</div>
+                    <div class="col-8">
+                      <ngx-star-rating formControlName="communication" [id]="'rating5'"></ngx-star-rating>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">Cooperative</div>
+                    <div class="col-8">
+                      <ngx-star-rating formControlName="cooperation" [id]="'rating6'"></ngx-star-rating>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">Description</div>
+                    <div class="col-8">
+                      <textarea formControlName="description" cols="40" rows="5" style="margin-left: 30px;"></textarea>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                      <button class="btn btnColor" style="margin-left: 30px;" (click)="postCustomerRating()">Submit</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<app-footer></app-footer>

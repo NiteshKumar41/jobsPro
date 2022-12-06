@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="card color">
+        <div class="row mb-3 pt-2">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <label  class="header" for="">Service</label><br>
+                <mat-form-field class="example-full-width width100" appearance="fill">
+                    <input type="text" placeholder=" Service" aria-label="Number" matInput [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions " [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <label class="header"for="">Location</label><br>
+                <input class="width100" type="text" placeholder="where do you need it?" style="height: 41px;border-radius: 10px;">
+            </div>
+            <div class="col-md-2">
+                <br>
+                <button class="btn btn-light width100" style="height: 41px; border-radius: 10px;">Search</button>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+</div>

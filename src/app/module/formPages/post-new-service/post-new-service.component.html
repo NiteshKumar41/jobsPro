@@ -1,0 +1,273 @@
+<app-inside-header></app-inside-header>
+<br>
+<br>
+<div>
+	<div style="text-align:center; align-items:center;flex:1;display:flex;margin-left: 250px;">
+		<img src="https://i.postimg.cc/zGnsSxxf/jb8.png"
+			alt="logo">
+		<div style="display:block;">
+			<h1>
+				<b>
+					Welcome to Dashboard
+				</b>
+			</h1>
+			<h1>
+				Hello Agnes Lee, good day to you
+			</h1>
+			<div style="display:flex;text-align:center; align-items:center">
+				<span style="font-size: 24px;">
+					You have received&nbsp;&nbsp;&nbsp;
+				</span>
+				<button mat-flat-button
+					style="background-color: #ff8800;color: #ffffff;margin-right: 10px;">
+					2 New Request
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+<div class="container"
+	style="margin: 0px;padding: 0px;">
+	<div class="container"
+		style="margin: 0px;padding: 0px;margin-right: 15px;height: 1250px;">
+		<div class="container"
+			style="margin: 0px;padding: 0px;margin-left: 50px;display: block;">
+			<mat-form-field appearance="outline"
+				style="margin-left:5px;width: 300px;">
+				<mat-label style="color: #ff8800;text-align:center; align-items:center">
+					Sent Offer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button mat-raised-button
+						style="background-color: #ff8800;color: #ffffff;margin-right: 10px;position: relative;bottom: 8px;border-radius: 0px;width: 10px;height: 30px;">
+						2
+					</button>
+				</mat-label>
+				<input [disabled]="true"
+					matInput
+					class="apple">
+			</mat-form-field>
+			<br>
+			<mat-form-field appearance="outline"
+				style="margin-left:5px;width: 300px;">
+				<mat-label style="color: #ff8800;text-align:center; align-items:center">
+					Posted Services&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button mat-raised-button
+						style="background-color: #ff8800;color: #ffffff;margin-right: 10px;position: relative;bottom: 8px;border-radius: 0px;width: 10px;height: 30px;">
+						3
+					</button>
+				</mat-label>
+				<input [disabled]="true"
+					matInput
+					class="apple">
+			</mat-form-field>
+			<br>
+			<div style="display: inline;text-align:center; align-items:center">
+				<span>
+					<mat-icon>add_circle</mat-icon>
+				</span>
+				<span>
+					Post Your Service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</span>
+			</div>
+			<br>
+			<br>
+			<mat-form-field appearance="outline"
+				style="margin-left:5px;width: 300px;">
+				<mat-label style="color: #ff8800;text-align:center; align-items:center">
+					Received Offers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button mat-raised-button
+						style="background-color: #ff8800;color: #ffffff;margin-right: 10px;position: relative;bottom: 8px;border-radius: 0px;width: 10px;height: 30px;">
+						6
+					</button>
+				</mat-label>
+				<input [disabled]="true"
+					matInput
+					class="apple">
+			</mat-form-field>
+		</div>
+	</div>
+	<div style="margin: 0px;padding: 0px;margin-left: 15px;height: 1250px;width:80%">
+		<div class="container"
+			style="margin: 0px;padding: 0px;"
+			style="display: block;margin-right: 150px;">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button mat-flat-button
+				style="background-color: #ff8800;color: #ffffff;width: 90%;">
+				<b>Posted Services</b>
+			</button>
+			<br>
+			<br>
+			<div style="border: 1px solid #ff8800;">
+				<br>
+				<span style="margin-left: 15px; font-weight: bold;">Services Type</span>
+				<br>
+				<mat-form-field appearance="outline"
+					style="width: 300px;margin-left: 15px;">
+					<mat-label>Services Type</mat-label>
+					<mat-select placeholder="Services Type">
+						<mat-option selected>Select Service</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<br>
+				<span style="margin-left: 15px; font-weight: bold;">Title</span>
+				<br>
+				<mat-form-field appearance="outline"
+					style="width: 300px;margin-left: 15px;">
+					<mat-label>Title</mat-label>
+					<input matInput
+						class="password"
+						placeholder="Post Title">
+				</mat-form-field>
+				<br>
+				<span style="margin-left: 15px;font-weight: bold;">Rate Type</span>
+				<br>
+				<mat-button-toggle-group name="favoriteColor"
+					style="margin-left: 15px;width: 300px;">
+					<mat-button-toggle value="red"
+						style="width: 50%;background-color: #ff8800;color: #ffffff;">
+						Hourly Rate
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 50%;color: #ff8800;">
+						Fixed Rate
+					</mat-button-toggle>
+				</mat-button-toggle-group>
+				<br>
+				<br>
+				<span style="margin-left: 15px;font-weight: bold;">Negotiable</span>
+				<br>
+				<mat-radio-group style="margin-left: 15px;">
+					<mat-radio-button value="1">
+						Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</mat-radio-button>
+					<mat-radio-button value="2">No</mat-radio-button>
+				</mat-radio-group>
+				<br>
+				<br>
+				<span style="margin-left: 15px;font-weight: bold;">Amount</span>
+				<br>
+				<mat-form-field appearance="outline"
+					style="width: 300px;margin-left: 15px;">
+					<mat-label>Amount</mat-label>
+					<input matInput
+						type="text"
+						placeholder="MYR 0">
+				</mat-form-field>
+				<br>
+				<span style="margin-left: 15px; font-weight: bold;">Day of the week</span>
+				<br>
+				<mat-button-toggle-group name="favoriteColor"
+					style="margin-left: 15px;width: 540px;">
+					<mat-button-toggle value="red"
+						style="width: 14.28%;background-color: #ff8800;color: #ffffff;">
+						Sun
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 14.28%;color: #ff8800;">
+						Mon
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 14.28%;color: #ff8800;">
+						Tue
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 14.28%;color: #ff8800;">
+						Wed
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 14.28%;color: #ff8800;">
+						Thu
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 14.28%;color: #ff8800;">
+						Fri
+					</mat-button-toggle>
+					<mat-button-toggle value="green"
+						style="width: 14.28%;color: #ff8800;">
+						Sat
+					</mat-button-toggle>
+				</mat-button-toggle-group>
+				<br>
+				<br>
+				<div>
+					<span style="margin-left: 15px; font-weight: bold;">From Time</span>
+					<span style="margin-left: 95px; font-weight: bold;">To</span>
+				</div>
+				<div>
+					<mat-form-field appearance="outline"
+						style="width: 145px;margin-left: 15px;">
+						<mat-label>From Time</mat-label>
+						<input matInput
+							type="text"
+							placeholder="From Time">
+					</mat-form-field>
+					<mat-form-field appearance="outline"
+						style="width: 145px;margin-left: 15px;">
+						<mat-label>To</mat-label>
+						<input matInput
+							type="text"
+							placeholder="To">
+					</mat-form-field>
+				</div>
+				<span style="margin-left: 15px; font-weight: bold;">City</span>
+				<br>
+				<mat-form-field appearance="outline"
+					style="width: 300px;margin-left: 15px;">
+					<mat-label>City</mat-label>
+					<mat-select placeholder="Select your city"></mat-select>
+				</mat-form-field>
+				<br>
+				<mat-form-field appearance="outline"
+					style="width: 300px;margin-left: 15px;">
+					<mat-label>+ Add City</mat-label>
+					<input matInput
+						type="text"
+						placeholder="+ Add City">
+				</mat-form-field>
+
+				<div style="border: 3px solid #ff8800;margin: 15px;">
+
+					<div style="display: flex;align-items: center;justify-content: center;">
+						<div style="border: 3px dotted #ff8800;margin: 5px;align-items: center;justify-content: center;padding: 15px">
+							<img src="https://i.postimg.cc/QCFz3xQ6/upload.png"
+								alt="logo"
+								style="width: 100px;height: 100px;">
+							<br>
+							<h5 style="text-align: center;align-items: center;">Upload Media</h5>
+						</div>
+						<div style="border: 3px dotted #ff8800;margin: 5px;align-items: center;justify-content: center;padding: 15px">
+							<img src="https://i.postimg.cc/QCFz3xQ6/upload.png"
+								alt="logo"
+								style="width: 100px;height: 100px;">
+							<br>
+							<h5 style="text-align: center;align-items: center;">Upload Media</h5>
+						</div>
+						<div style="border: 3px dotted #ff8800;margin: 5px;align-items: center;justify-content: center;padding: 15px;">
+							<img src="https://i.postimg.cc/dtk88TQH/plus.png"
+								alt="logo"
+								style="width: 100px;height: 100px;">
+							<br>
+							<h5 style="text-align: center;align-items: center;">Upload Media</h5>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div style="display: flex; justify-content: flex-end;">
+						<span style="color:#ff8800">
+							<b>File max size: 3 MB</b>
+						</span>
+					</div>
+				</div>
+				<br>
+				<button mat-flat-button
+					style="background-color: #ff8800;color: #ffffff;margin-left: 485px;">
+					<b>Save</b>
+				</button>
+				<br>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

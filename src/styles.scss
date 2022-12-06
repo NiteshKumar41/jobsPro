@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.alignItem{
+    align-items: center !important;
+}
+.alignSelf{
+    align-self: center !important;
+}
+.colorMain{
+    color: #FC6A03 !important;
+}
+.border{
+    border: 1px solid #FC6A03 !important;
+}
+.margin0{
+    margin: 0px !important;
+}
+.width100{
+    width: 100% !important;
+}
+.fontService{
+    font-weight: bold !important;
+}
+.padding0{
+    padding: 0px !important;
+}
+.margin0{
+    margin: 0px !important;
+}
+.width100{
+    width: 100% !important;
+}
+.borderNone{
+    border: none !important;
+}
+.btnColor{
+    color: white;
+    background-color: #FC6A03 !important; 
+}
+.marginLeft0{
+    margin-left: 0px !important;
+}
+.height100{
+    height: 100% !important;
+}
+.borderRadius20{
+    border-radius: 20px !important;
+}
+.cursor{
+    cursor: pointer;
+}
+.chatCard{
+    color: #FC6A03 !important;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.marginRight50{
+    margin-right: 50px !important;
+}
+.marginLeft50{
+    margin-left: 50px !important;
+}
+.colorWhite{
+    color: white !important;
+}
+.marginLeftRight20{
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+}
+.marginLeft20{
+    margin-left: 20px;
+}
+.marginRight0{
+    margin-right: 0px !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

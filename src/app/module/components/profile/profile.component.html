@@ -1,0 +1,317 @@
+<app-header></app-header>
+<div class="row mb-4"></div>
+<div class="row padding10" *ngIf="profilePage">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="card">
+            <div class="row marginLeft0 mb-3 mt-3">
+                <div class="col-md-2 col-sm-2">
+                    <img id="myimage" [src]='profileImage' height="100" style="border-radius: 45px;">
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <span>{{profileData?.name}} &nbsp;<img src="../../../../assets/verified icon.png" height="20px"
+                            alt="" >&nbsp;&nbsp; </span><br>
+                    <button class="btnColor borderNone borderRadius5" (click)="verifyProfile()">Click here to verify account </button>
+                </div>
+            </div>
+            <div class="row marginLeft0 mb-2">
+                <h3 class="fontService">Personal Details</h3>
+            </div>
+            <div class="row marginLeft0 mb-2">
+                <h3 class="fontService"><img src="" alt="">{{profileData?.gender}}</h3>
+            </div>
+            <div class="row marginLeft0 mb-2">
+                <h3 class="fontService"><img src="" alt="">{{profileData?.city}}</h3>
+            </div>
+            <div class="row marginLeft0 mb-4">
+                <h3 class="fontService mb-2">About Me</h3>
+                <p>We providing rental services of professional home cleaning tools i.e. Karcher Puzzi 10/1 & 8/1, Steam
+                    Cleaner
+                    SC3, Wet & Dry Vacuum WD3S and K4 Waterjet.</p>
+            </div>
+            <div class="row marginLeft0 mb-3">
+                <h3 class="fontService">Media</h3>
+                <br>
+                <!--Carousal-->
+                <app-image-carosual></app-image-carosual>
+            </div>
+            <hr class="mb-3">
+            <div class="row marginLeft0 mb-2">
+                <h3 class="fontService">Contact Details</h3>
+            </div>
+            <div class="row marginLeft0 mb-2">
+                <div class="col">
+                    <span><img src="../../../../assets/Artboard 56.png" >{{profileData?.phone}}</span>&nbsp;&nbsp;<mat-slide-toggle></mat-slide-toggle>
+                </div>
+            </div>
+            <div class="row marginLeft0 mb-2">
+                <div class="col">
+                    <span><img src="../../../../assets/Artboard 57.png" > &nbsp;{{profileData?.email}}</span>&nbsp;&nbsp;<mat-slide-toggle></mat-slide-toggle>
+                </div>
+            </div>
+            <!-- <hr class="mb-3"> -->
+            
+            <!-- <div class="row marginLeft0 mb-2">
+                <h3>List of Services</h3>
+            </div>
+            <div class="row marginLeft0 mb-3">
+                <app-image-carosual></app-image-carosual>
+            </div> -->
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+ <div class="row mb-3" *ngIf="isUploadPhoto">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card boxShadow height100">
+                    <div class="row mb-3 mt-3">
+                        <div class="col-md-3 col-sm-2">
+                            <img id="myimage" [src]='profileImage' height="100" style="border-radius: 45px;">
+                        </div>
+                        <div class="col-md-9 col-sm-10">
+                            <div class="row">
+                                <span class="mb-3">{{profileData?.name}} &nbsp;<img
+                                        src="../../../../assets/verified icon.png" height="20px" alt="">&nbsp;&nbsp;<img src="../../../../assets/Artboard 53.png" height="20" alt="" (click)="editProfile(profileData)">
+                                </span> <br>
+
+                            </div>
+                            <button class="btnColor borderNone borderRadius5">Click here to verify account </button>
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-4 mt-4">
+                        <div class="col-12 text-left pl-2 fontSize">Personal Details</div>
+                    </div>
+                    <div class="row marginLeft0 mb-4">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            {{profileData?.phone}}
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-4">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            {{profileData?.email}}
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-4">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            {{profileData?.city}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card boxShadow">
+                    <div class="row marginLeft0 mt-2 mb-2">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            Upload Picture of your Face
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-2">
+                        <div class="col-12 text-center ">
+                            <img src="../../../../assets/Artboard 58.png" height="50" alt="">
+                        </div>
+                        <div class="col-12 text-center">
+                            <div class="image-upload">
+                                <label for="file-input">
+                                    <img src=""/><span class="colorMain">Upload Image</span>
+                                </label>
+                                <input id="file-input" type="file"  (change)="uploadDocument($event)"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mt-2 mb-2">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            Upload Ic Front
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-2">
+                        <div class="col-12 text-center ">
+                            <img src="../../../../assets/Artboard 59.png" height="50" alt="">
+                        </div>
+                        <div class="col-12 text-center">
+                            <!-- <div class="image-upload">
+                                <label for="file-input">
+                                    <img src=""/><span class="colorMain">Upload Image</span>
+                                </label>
+                                <input id="file-input1" type="file" (change)="getFileDetails($event)" />
+                            </div> -->
+                            <input  type="file" (change)="getFileDetails($event)" />
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-2">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            Upload IC Back
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-2">
+                        <div class="col-12 text-center">
+                            <img src="../../../../assets/Artboard 60.png" height="50" alt="">
+                        </div>
+                        <div class="col-12 text-center">
+                            <!-- <div class="image-upload">
+                                <label for="file-input">
+                                    <img src=""/><span class="colorMain"  >Upload Image</span>
+                                </label>
+                                <input id="file-input2" type="file" (change)="getFileDetails($event)"/>
+                            </div> -->
+                            <input  type="file" (change)="getFileDetails($event)"/>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 text-center"><button class="btn btnColor" (click)="uploadFiles()">Submit</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div> 
+<div class="row mb-3" *ngIf="isEditProfile">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card boxShadow height100">
+                    <div class="row mb-3 mt-3">
+                        <div class="col-md-4 col-sm-4">
+                            <img id="myimage" [src]='profileImage' height="100" style="border-radius: 45px;"> 
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="row">
+                                <span class="mb-3">{{profileData?.name}} &nbsp;<img
+                                        src="../../../../assets/verified icon.png" height="20px" alt="">&nbsp;&nbsp;
+                                        <!-- <img src="../../../../assets/Artboard 53.png" height="20" alt=""> -->
+                                </span> <br>
+
+                            </div>
+                            <button class="btnColor borderNone borderRadius5">Verified </button>
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-4 mt-4">
+                        <div class="col-12 text-left pl-2 fontSize">Personal Details</div>
+                    </div>
+                    <div class="row marginLeft0 mb-4">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            {{profileData?.phone}}
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-4">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            {{profileData?.email}}
+                        </div>
+                    </div>
+                    <div class="row marginLeft0 mb-4">
+                        <div class="col-12 text-left pl-2 fontSize">
+                            {{profileData?.city}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card boxShadow" *ngIf="!uploadMedia">
+                    <form [formGroup]="editProfileForm">
+                        <div class="form-group mt-3 padding10 fontSize">
+                            <label>Name</label>
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <label>Gender</label><br>
+                            <input type="radio" id="Male" formControlName="gender" value="Male">
+                              <label>Male</label>
+                              <input type="radio" id="female" formControlName="gender" value="female">
+                              <label>Female</label><br>
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <!-- <label>DOB</label> -->
+                            <!-- <input type="text" class="form-control" formControlName="dob"> -->
+                            <mat-form-field appearance="fill">
+                                <input matInput [matDatepicker]="dp3"  disabled>
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+                                <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                              </mat-form-field>
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <label>Country Code</label>
+                            <input type="text" class="form-control" formControlName="countryCode">
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <label>Phone</label>
+                            <input type="text" class="form-control" formControlName="phone">
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <label>Address</label>
+                            <input type="text" class="form-control" formControlName="address">
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <label>City</label>
+                            <input type="text" class="form-control" formControlName="city">
+                        </div>
+                        <div class="form-group padding10 fontSize">
+                            <label>About Me</label>
+                            <input type="text" class="form-control" formControlName="about">
+                        </div>
+                    </form>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col"> <a class="cursor" (click)="editMedia()">Upload Media here</a></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 text-center"><button class="btn btnColor" (click)="updateProfile()">Submit</button></div>
+                    </div>
+                </div>
+                <div class="card boxShadow" *ngIf="uploadMedia">
+                    <div class="row mb-3">
+                        <div class="row marginLeft0 mb-2">
+                            <div class="col-12 text-center ">
+                                <img src="../../../../assets/Artboard 59.png" height="50" alt="">
+                            </div>
+                            <div class="col-12 text-center">
+                                <input  type="file" (change)="getMediaFile($event)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="row marginLeft0 mb-2">
+                            <div class="col-12 text-center ">
+                                <img src="../../../../assets/Artboard 59.png" height="50" alt="">
+                            </div>
+                            <div class="col-12 text-center">
+                                <input  type="file" (change)="getMediaFile($event)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="row marginLeft0 mb-2">
+                            <div class="col-12 text-center ">
+                                <img src="../../../../assets/Artboard 59.png" height="50" alt="">
+                            </div>
+                            <div class="col-12 text-center">
+                                <input  type="file" (change)="getMediaFile($event)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 text-center"><button class="btn btnColor" (click)="updateProfileMedia()">Save</button></div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<ngx-spinner type="ball-fussion"></ngx-spinner>
+<app-footer></app-footer>
+
+<!--Carousal try-->
+<!-- 
+<h1>second page</h1>
+
+<app-header></app-header>
+<div class="row mb-3">
+ <div class="col-md-1"></div>
+ .col-md-5
+</div> -->

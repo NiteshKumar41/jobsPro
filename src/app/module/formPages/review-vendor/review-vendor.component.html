@@ -1,0 +1,118 @@
+<app-inside-header></app-inside-header>
+<br>
+<br>
+<br>
+<div id="container"
+	style="height: 695px;">
+	<div id="left">
+		<div id="left2">
+			<div style="margin-left: 30px;">
+				<mat-form-field appearance="outline"
+					style="margin-left:5px;width: 300px;">
+					<mat-label style="color: #ff8800;text-align:center; align-items:center">Rate</mat-label>
+					<input [disabled]="true"
+						matInput
+						class="apple">
+				</mat-form-field>
+			</div>
+		</div>
+	</div>
+	<div id="right">
+		<div style="border: 1px solid #ff8800;margin-right: 30px;padding: 15px;  border-radius: 5px;">
+            <br>
+            <br>
+			<h1>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REVIEW VENDOR
+			</h1>
+			<br>
+			<div style="width: 400px;margin-left:300px">
+				<h3 style="display: flex;justify-content: space-between;">
+					<span>Star Rate</span>
+					<app-star-rating [rating]="rating"
+						[starCount]="starCount"
+						[color]="starColor"
+						(ratingUpdated)="onRatingChanged($event)"></app-star-rating>
+				</h3>
+			</div>
+			<div style="width: 400px;margin-left:300px">
+				<h3 style="display: flex;justify-content: space-between;align-items:center">
+					<mat-radio-group class="radioAlign">
+						<span>
+							Friendliness&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
+						</span>
+						<img src="https://i.postimg.cc/Gp7D31L1/support.png"
+							alt="logo"
+							style="width:75px;height:50px;position: relative;top: 15px;">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             &nbsp;&nbsp;
+						</span>
+						<mat-radio-button value="1"></mat-radio-button>
+						<br>
+						<br>
+						<span>
+							Cleaniness&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</span>
+						<img src="https://i.postimg.cc/Hs9qBbQj/clean.png"
+							alt="logo"
+							style="width:75px;height:50px;position: relative;top: 15px;">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;
+						</span>
+						<mat-radio-button value="2"></mat-radio-button>
+						<br>
+						<br>
+						<span>
+							Satisfaction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</span>
+						<img src="https://i.postimg.cc/nhvGv17w/satisfaction.png"
+							alt="logo"
+							style="width:75px;height:50px;position: relative;top: 15px;">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
+						</span>
+						<mat-radio-button value="3"></mat-radio-button>
+					</mat-radio-group>
+				</h3>
+			</div>
+			<br>
+            <br>
+			<div style="width: 400px;margin-left:300px">
+				<h3 style="display: flex;justify-content: space-between;">
+					<span>
+						Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</span>
+					<mat-form-field style="width:200px;"
+						appearance="outline">
+						<textarea matInput
+							name="questionText"
+							rows="4"
+							placeholder="Share your experience..."
+							required></textarea>
+					</mat-form-field>
+				</h3>
+			</div>
+			<div style="width: 400px;margin-left:300px">
+				<h2 style="display: flex;justify-content:center;">
+					<button mat-flat-button
+						style="background-color: #ff8800;color: #ffffff;">
+						Submit
+					</button>
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

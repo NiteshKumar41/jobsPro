@@ -1,0 +1,31 @@
+.borderRadius5{
+    border-radius: 5px !important;
+}
+.padding20{
+    padding: 30px !important;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .image-upload > input
+  {
+      display: none;
+  }
+  
+  .image-upload img
+  {
+      width: 80px;
+      cursor: pointer;
+  }
+  .fontSize{
+    font-weight: bold;
+    font-size: larger;
+  }
+  .boxShadow{
+    box-shadow: 5px 5px 5px 5px #888888 !important;
+  }
+.padding10{
+    padding: 10px !important;
+}

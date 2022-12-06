@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="card" style="border: none;">
+        <div class="row text-right mb-3">
+            <div class="col-md-10 col-sm-10 col-10">Update Service</div>
+            <div class="col-md-2 col-sm-2 col-2">
+                <button mat-button mat-dialog-close>X</button>
+            </div>
+        </div>
+        <div class="row">
+            <form [formGroup]="editPostedForm">
+                <div class="col-12">
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Service Type</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <select class="form-control" formControlName="serviceTypeId"
+                                [ngModel]="data?.data?.serviceType?.id">
+                                <option [value]="data?.data?.serviceType?.id" selected>{{data?.data?.serviceType?.en}}
+                                </option>
+                                <option [value]="data?.id" *ngFor="let data of allCategoryServices">{{data?.en}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Title</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <input type="text" placeholder="Post Title" class="form-control" formControlName="title" />
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Description</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <input type="text" placeholder="Post Title" class="form-control"
+                                formControlName="description" />
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Rate Type</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <div class="btn">Hourly Rate</div>
+                            <div class="btn">Fixed Rate</div>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <!-- <div class="row mb-3 marginLeft0">
+            <div class="col-1"></div>
+            <div class="col-2">Negotiable</div>
+            <div class="col-1"></div>
+            <div class="col-7">
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="col-1"></div>
+          </div> -->
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Currency</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <input type="text" placeholder="Amount" class="form-control" formControlName="currency" />
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Amount</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <input type="text" placeholder="Amount" class="form-control" formControlName="amount" />
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">Day of the week</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <input type="text" placeholder="Select Service" class="form-control"
+                                formControlName="weekDay" />
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">From Time</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-5">
+                                    <input type="text" placeholder="00:00" class="form-control"
+                                        formControlName="fromTime" />
+                                </div>
+                                <div class="col-2 text-center alignSelf">TO</div>
+                                <div class="col-5">
+                                    <input type="text" placeholder="00:00" class="form-control"
+                                        formControlName="toTime" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row mb-3 marginLeft0">
+                        <div class="col-1"></div>
+                        <div class="col-2">City</div>
+                        <div class="col-1"></div>
+                        <div class="col-7">
+                            <input type="text" placeholder="Your City" class="form-control" formControlName="city" />
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <!-- <div class="row mt-2 mb-4 marginLeft0 marginRight0 padding20">
+            <div class="card">images</div>
+          </div> -->
+                </div>
+                <div class="row text-right" style="text-align: right;">
+                    <div class="col text-right">
+                        <div class="btn btnColor" (click)="updatePostedService()">Update Service</div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
